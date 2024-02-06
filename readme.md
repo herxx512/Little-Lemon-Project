@@ -1,3 +1,2 @@
 Test url:
-restaurant/menu/
-restaurant/booking/
+"restaurant/menu/" and "restaurant/booking/"
