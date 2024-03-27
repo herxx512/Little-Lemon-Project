@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load rest_framework %}
+{% block content %}
+<section id="book">
+    <div id="booked-res">   
+        {% for reservation in booking %}
+            <div id="booked">
+                <p>Name: {{reservation.name}}</p>
+                <p>Number of Guests: {{reservation.guests}}</p>
+                <p>Date: {{reservation.date}}</p>
+                <a href="{% url 'booking_detail' pk=reservation.id %}" class="edit-btn">Edit</a>
+            </div>
+        {% endfor %}
+    </div>
+    <a href="{% url 'add_booking' %}" id="reserve-btn"> Add Reservation </a>
+</section>
+{% endblock %} 

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load rest_framework %}
+{% block content %}
+   
+    <h1>Are you sure you want to delete "{{booking.name}}'s" Reservation from the Bookings?</h1>
+    <form method="post">
+        {% csrf_token %}
+        <div class="delete-btns">
+            <a href="{% url 'booking_detail' pk=booking.id %}" class="edit-btn">Cancel</a>
+            <button type="submit" value="Delete" class="delete-btn">Delete</button>
+        </div>
+    </form>
+
+{% endblock %} 

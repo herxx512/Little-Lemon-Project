@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<section>
+    <article id="quote" class="home">
+        <h1>
+            “There is no love sincerer than the love of food.” - George Bernard Shaw.
+        </h1>
+    </article>
+    <article class="home">
+        <h2>Customize Menu</h2>
+        <img src="{% static 'img/grill.jpg' %}">
+        <p>Customize the current menu. You can add, edit, or delete the menu.</p>
+        <a href="{% url 'menu' %}">See the current menu</a>
+    </article>
+    <article class="home">
+        <h2>Book a table</h2>
+        <img src="{% static 'img/restaurant_inside.jpg' %}">
+        <p>Reserve table for customers. Add, edit or delete any bookings.</p>
+        <a href="{% url 'booking' %}">Reserve a table now</a>
+    </article>
+</section>
+
+{% endblock %}

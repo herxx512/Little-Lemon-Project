@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load rest_framework %}
+{% block content %}
+    
+    <h1>Are you sure you want to delete "{{data.title}}" item from the Menu?</h1>
+    <form method="post">
+        {% csrf_token %}
+        <div class="delete-btns">
+            <a href="{% url 'menu_item' pk=data.id %}" class="edit-btn">Cancel</a>
+            <button type="submit" value="Delete" class="delete-btn">Delete</button>
+        </div>
+    </form>
+
+{% endblock %} 

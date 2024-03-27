@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load rest_framework %}
+{% block content %}
+<section class="item-content">
+    <p>Name: {{booking.name}}</p>
+    <p>Number of Guests: {{booking.guests}}</p>
+    <p>Date: {{booking.date}}</p>
+    
+    <div class="btns">
+        <a href="{% url 'update_booking' pk=booking.id %}" class="edit-btn">Update Booking</a>
+        <a href="{% url 'delete_booking' pk=booking.id %}" class="delete-btn">Delete Booking</a>
+    </div>
+
+    <a href="{% url 'booking' %}">Back to Booking List</a>
+<section>
+
+{% endblock %} 

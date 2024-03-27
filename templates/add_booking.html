@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load rest_framework %}
+{% block content %}
+   
+    <h1>Add a Reservation:</h1>
+
+    <form method="post" action="{% url 'add_booking'%}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="edit-btn">Add</button>
+    </form>
+
+    <a href="{% url 'booking' %}" class="back-list">Back to Booking List</a>
+{% endblock %} 

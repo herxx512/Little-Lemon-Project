@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load rest_framework %}
+{% block content %}
+<section class="item-content">
+        <img src="/restaurant/static/img/{{data.title}}.jpg" alt="{{data.title}}" class="pic">
+        <p>Item: {{data.title}}</p>
+        <p>Price: ${{data.price}}</p>
+        <p>Inventory: {{data.inventory}}</p>
+
+        <form method="post" action="{% url 'menu_item' pk=data.id %}">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <div class="btns">
+                <button type="submit" class="edit-btn">Update</button>
+                <a href="{% url 'delete_menu_item' pk=data.id %}" class="delete-btn">Delete</a>
+            </div>
+        </form>
+
+        <a href="{% url 'menu' %}">Back to Menu List</a>
+</section>
+{% endblock %} 
