@@ -20,7 +20,7 @@ class MyTemplateHTMLRender(renderers.TemplateHTMLRenderer):
     def get_template_context(self, *args, **kwargs):
         context = super().get_template_context(*args, **kwargs)
         if isinstance(context, list):
-            context = {'menui':context}
+            context = {'menu':context}
         return context
  
  # 3 Classes below includes custom/override functions to help render and handle requests (via "GET" and "POST") due to limited scope of the front-end in this project:   
@@ -75,7 +75,8 @@ class DeleteSingleMenuItemView(generics.RetrieveDestroyAPIView):
 class BookingViewSet(viewsets.ModelViewSet):
     queryset = Booking.objects.all()
     serializer_class = BookingSerializer
-    permission_classes = [IsAuthenticated]
+    # Uncomment below to implement Authentication via token
+    # permission_classes = [IsAuthenticated]
 
 # Custom functions to handling Booking CRUD requests via "GET" and "POST":
 def booking(request):
